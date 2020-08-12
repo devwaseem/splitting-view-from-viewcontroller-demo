@@ -8,13 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TrafficViewDelegate {
 
+    let trafficView = TrafficView()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view = trafficView
+        trafficView.delegate = self
     }
-
-
+    
+    func showAlert(title:String){
+        let alertVC = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alertVC.addAction(okButton)
+        present(alertVC, animated: true)
+    }
+    
+    func redButtonTapped() {
+        showAlert(title: "Stop!")
+    }
+    
+    func yellowButtonTapped() {
+        showAlert(title: "Get Ready!")
+    }
+    
+    func greenButtonTapped() {
+         showAlert(title: "Go Go Go!")
+    }
 }
 
