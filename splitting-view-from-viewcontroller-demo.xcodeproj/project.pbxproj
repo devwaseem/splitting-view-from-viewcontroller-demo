@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75F6728524E6C5EB00CCB6F7 /* WAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6728424E6C5EB00CCB6F7 /* WAView.swift */; };
+		75F6728724E6FBAF00CCB6F7 /* WATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6728624E6FBAF00CCB6F7 /* WATableViewCell.swift */; };
+		75F6728924E6FC6200CCB6F7 /* TableViewCellImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6728824E6FC6200CCB6F7 /* TableViewCellImplementation.swift */; };
 		75FC767224E424D40081E397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC767124E424D40081E397 /* AppDelegate.swift */; };
 		75FC767424E424D40081E397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC767324E424D40081E397 /* SceneDelegate.swift */; };
 		75FC767624E424D40081E397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC767524E424D40081E397 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75F6728424E6C5EB00CCB6F7 /* WAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAView.swift; sourceTree = "<group>"; };
+		75F6728624E6FBAF00CCB6F7 /* WATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WATableViewCell.swift; sourceTree = "<group>"; };
+		75F6728824E6FC6200CCB6F7 /* TableViewCellImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellImplementation.swift; sourceTree = "<group>"; };
 		75FC766E24E424D40081E397 /* splitting-view-from-viewcontroller-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "splitting-view-from-viewcontroller-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FC767124E424D40081E397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FC767324E424D40081E397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 				75FC767A24E424D70081E397 /* Assets.xcassets */,
 				75FC767C24E424D70081E397 /* LaunchScreen.storyboard */,
 				75FC767F24E424D70081E397 /* Info.plist */,
+				75F6728424E6C5EB00CCB6F7 /* WAView.swift */,
+				75F6728624E6FBAF00CCB6F7 /* WATableViewCell.swift */,
+				75F6728824E6FC6200CCB6F7 /* TableViewCellImplementation.swift */,
 			);
 			path = "splitting-view-from-viewcontroller-demo";
 			sourceTree = "<group>";
@@ -142,9 +151,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				75FC767624E424D40081E397 /* ViewController.swift in Sources */,
+				75F6728724E6FBAF00CCB6F7 /* WATableViewCell.swift in Sources */,
+				75F6728524E6C5EB00CCB6F7 /* WAView.swift in Sources */,
 				75FC767224E424D40081E397 /* AppDelegate.swift in Sources */,
 				75FC768624E453720081E397 /* TrafficView.swift in Sources */,
 				75FC767424E424D40081E397 /* SceneDelegate.swift in Sources */,
+				75F6728924E6FC6200CCB6F7 /* TableViewCellImplementation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

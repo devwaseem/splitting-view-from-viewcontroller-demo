@@ -14,58 +14,47 @@ protocol TrafficViewDelegate:class {
     func greenButtonTapped()
 }
 
-class TrafficView: UIView {
+class TrafficView: WAView {
     
-    private let holdingStackView = UIStackView()
-    private let redButton = UIButton()
-    private let yellowButton = UIButton()
-    private let greenButton = UIButton()
+    private let holdingStackView:UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.backgroundColor = .red
+        return stackView
+    }()
+    
+    
+    private let redButton:UIButton = {
+        
+        $0.setTitle("Red", for: .normal)
+        $0.setTitleColor(.systemRed, for: .normal)
+        return $0
+        
+    }(UIButton())
+    
+    private let yellowButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("Yellow", for: .normal)
+        button.setTitleColor(.systemYellow, for: .normal)
+        return button
+    }()
+    
+    
+    private let greenButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("Green", for: .normal)
+        button.setTitleColor(.systemGreen, for: .normal)
+        return button
+    }()
     
     weak var delegate: TrafficViewDelegate? = nil
-   
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.frame = frame
-        setupViews()
+       
+    var contentSubViews: [UIView] {
+        [holdingStackView]
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    func setupViews(){
-        
-        //setup buttons
-        redButton.setTitle("Red", for: .normal)
-        redButton.setTitleColor(.systemRed, for: .normal)
-        redButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(redButtonTapped(_:))))
-        
-        yellowButton.setTitle("Yellow", for: .normal)
-        yellowButton.setTitleColor(.systemYellow, for: .normal)
-        yellowButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(yellowButtonTapped(_:))))
-        
-        greenButton.setTitle("Green", for: .normal)
-        greenButton.setTitleColor(.systemGreen, for: .normal)
-        greenButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(greenButtonTapped(_:))))
-        
-        // add to stackview
-        holdingStackView.addArrangedSubview(redButton)
-        holdingStackView.addArrangedSubview(yellowButton)
-        holdingStackView.addArrangedSubview(greenButton)
-        
-        //setup stackview
-        holdingStackView.axis = .vertical
-        holdingStackView.distribution = .fillEqually
-        holdingStackView.backgroundColor = .red
-        
-        //add to view
-        addSubview(holdingStackView)
-        
-        //setup constraints
-        setupConstraints()
-    }
-    
-    func setupConstraints(){
+    func setupConstraints(for size: CGSize) {
         holdingStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             holdingStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -74,6 +63,20 @@ class TrafficView: UIView {
             holdingStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             holdingStackView.heightAnchor.constraint(equalToConstant: 250)
         ])
+    }
+    
+    override func setupViewsAdditionalConfiguration() {
+        
+        //setup gesture recognizer
+        redButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(redButtonTapped(_:))))
+        yellowButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(yellowButtonTapped(_:))))
+        greenButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(greenButtonTapped(_:))))
+        
+        // add to stackview
+        holdingStackView.addArrangedSubview(redButton)
+        holdingStackView.addArrangedSubview(yellowButton)
+        holdingStackView.addArrangedSubview(greenButton)
+        
     }
     
     @objc private func redButtonTapped(_ sender:UITapGestureRecognizer){
